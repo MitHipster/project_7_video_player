@@ -2,17 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+    <title>Interactive video player</title>
+    <meta name="author" content="Tim Acker">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.0.2/mediaelementplayer.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   </head>
   <body>
 
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script type="text/javascript" src="js/main.js"></script>
+    <video controls poster="img/poster.jpg">
+      <source 
+        src="video/video.mp4"
+        type="video/mp4">
+      <source
+        src="video/video.ogg"
+        type="video/ogg">
+      Your browser doesn't support HTML5 video tags. Please <a href="video/video.mp4" download>download</a>
+      and watch it with your preferred video player.
+    </video>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.0.2/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
