@@ -2,6 +2,7 @@
 /*global window, $, jQuery, alert*/
 
 const videoFile = document.getElementById('training-video');
+const timespans = document.getElementsByClassName('tspan');
 const timelines = [
   ['t01', 0.240, 4.130],
   ['t02', 4.130, 7.535],
@@ -21,18 +22,41 @@ const timelines = [
   ['t16', 57.780, 60.150]
 ];
 
-videoFile.addEventListener('timeupdate', (e) => {
+videoFile.addEventListener('timeupdate', e => {
   let cTime = e.target.currentTime;
 
-  timelines.forEach( (timeline) => {
+  timelines.forEach( timeline => {
     let id = timeline[0];
     let span = document.getElementById(id);
+    
     if (cTime >= timeline[1] && cTime < timeline[2]) {
-      console.log(timeline[0]);
       span.className = 'highlight';
+      
     } else {
-      console.log(timeline[0]);
       span.className = '';
     }
   });
-});
+},false);
+
+const seek = function() {
+  timelines.forEach ( timesline => {
+    if (this.id === timesline[0]) {
+      videoFile.currentTime = timesline[1];
+      if (!videoFile.play()) {
+        videoFile.play();
+      }
+    }
+  });
+  
+};
+
+for (let i = 0; i < timespans.length; i++) {
+    timespans[i].addEventListener('click', seek, false);
+}
+
+
+//Array.prototype.forEach.call(timespans, timespan => {
+//  timespan.addEventListener('click', () => {
+//    console.log(timespan.id);
+//  });
+//});
