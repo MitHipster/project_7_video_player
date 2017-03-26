@@ -1,71 +1,67 @@
-/* ================================
-    Base Element Styles
-   ================================ */
+
 * {
   box-sizing: border-box;
 }
 
 body {
   color: #222;
+  background-color: #edeff0;
   font-size: 1rem;
-  line-height: 1.4;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 2;
 }
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #3E474F;
+  height: 70px;
+  padding: 18px 30px;
+}
+
+#logo {
+  width: 35px;
+  height: 35px;
+}
+
+h2 {
+  color: #edeff0;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.outer-container {
+  margin: 4%;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.06);
+}
+
+.inner-container {
+  padding: 4%;
+  background-color: #fff;
+}
+
+video {
+  max-width: 100%;
+}
+
 
 .highlight {
-  color: #f90;
+  color: #eb8d00;
 }
-/* ================================
-    Base Layout Styles
-   ================================ */
-
-/* --------- Navigation -------- */
-
-
-
-/* ----- Layout Containers ----- */
-
-
-
-/* ------- Page Elements ------- */
-
-
 
 /* ================================
     Media Queries
    ================================ */
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   
-  
+  body {
+    max-width: 1000px;
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
-
-
-
-/* ================================
-    Helper Classes
-   ================================ */
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
-}
-
-/* ================================
-    Print Styles
-   ================================ */
-
-@media print {
-
-    
-}
-
 
