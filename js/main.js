@@ -1,6 +1,7 @@
 /*jslint esversion: 6, browser: true*/
 /*global window, $, jQuery, alert*/
 
+// Constants to hold video element, spans that contain the transcript, and an array that holds the transcript timeline
 const videoFile = document.getElementById('training-video');
 const timespans = document.getElementsByClassName('tspan');
 const timelines = [
@@ -22,26 +23,31 @@ const timelines = [
   ['t16', 57.780, 60.150]
 ];
 
+// Listen for the timeupdate event when video is playing
 videoFile.addEventListener('timeupdate', e => {
   let cTime = e.target.currentTime;
 
+  // Use currentTime value to find which timeline corresponds to the video's play position
   timelines.forEach( timeline => {
     let id = timeline[0];
     let span = document.getElementById(id);
     
+    // When match is found add hightlight class to apply styles
     if (cTime >= timeline[1] && cTime < timeline[2]) {
       span.className = 'highlight';
-      
+    // For timelines that do not match, remove the highlight class
     } else {
       span.className = '';
     }
   });
 },false);
 
+// Find clicked span's id in timelines array and get start time for that segment. Set currentTime equal to segment start time
 const seek = function() {
   timelines.forEach ( timesline => {
     if (this.id === timesline[0]) {
       videoFile.currentTime = timesline[1];
+      // If video is paused, set video playing at selected segment
       if (!videoFile.play()) {
         videoFile.play();
       }
@@ -50,11 +56,13 @@ const seek = function() {
   
 };
 
+// Add a click event to the timeline spans and when span is clicked call the seek function
 for (let i = 0; i < timespans.length; i++) {
     timespans[i].addEventListener('click', seek, false);
 }
 
 
+// Another method to assign click even handlers by calling on the Array's forEach method. Elements are part of the HTML Collection, which has not forEach method
 //Array.prototype.forEach.call(timespans, timespan => {
 //  timespan.addEventListener('click', () => {
 //    console.log(timespan.id);
