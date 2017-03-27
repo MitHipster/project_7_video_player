@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.0.2/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/skip-back/skip-back.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/jump-forward/jump-forward.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   </head>
@@ -18,7 +20,7 @@
     </header>
 
     <div class="outer-container">
-      <video id="training-video" class="mejs__player" controls poster="img/poster.jpg">
+      <video id="training-video" class="mejs__custom" controls poster="img/poster.jpg">
         <source 
           src="video/video.mp4"
           type="video/mp4">
@@ -56,6 +58,19 @@
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.0.2/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/skip-back/skip-back.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/jump-forward/jump-forward.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script>
+      $('video').mediaelementplayer({
+        features : ['playpause','current','skipback','progress','jumpforward','duration'],
+        skipBackInterval: 10,
+        jumpForwardInterval: 10,
+        showPosterWhenPaused: true,
+        success: function(player, mode) {
+          player.load();
+        }
+      });
+    </script>
   </body>
 </html>

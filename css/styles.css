@@ -60,18 +60,23 @@ video {
   background-color: #fff;
 }
 
-.mejs__player .mejs__controls {
-    background: #3e474f;
+.mejs__custom .mejs__controls {
+  background-color: #3e474f;
 }
 
-.mejs__player .mejs__controls .mejs__time-current{
-    background: #62bc72;
+.mejs__custom .mejs__controls .mejs__time-current{
+  background-color: #62bc72;
 }
 
-.mejs__player .mejs__controls .mejs__time-loaded{
-    background: #2f363c;
+.mejs__custom .mejs__controls .mejs__time-loaded{
+  background-color: #2f363c;
 }
 
+.mejs__custom .mejs__controls .mejs__time-float{
+  color: #fff;
+  background-color: #62bc72;
+  border: 1px solid #62bc72;
+}
 
 
 /* ================================
