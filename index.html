@@ -63,13 +63,12 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script>
       $('video').mediaelementplayer({
-        features : ['playpause','current','skipback','progress','jumpforward','duration'],
-        skipBackInterval: 10,
-        jumpForwardInterval: 10,
-        showPosterWhenPaused: true,
         success: function(player, mode) {
           player.load();
-        }
+        },
+        features : ['playpause','current','skipback','progress','jumpforward','duration'],
+        skipBackInterval: 10,
+        jumpForwardInterval: 10
       });
     </script>
   </body>

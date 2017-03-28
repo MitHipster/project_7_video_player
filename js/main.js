@@ -3,6 +3,7 @@
 
 // Constants to hold video element, spans that contain the transcript, and an array that holds the transcript timeline
 const videoFile = document.getElementById('training-video');
+const container = document.querySelector('.inner-container');
 const timespans = document.getElementsByClassName('tspan');
 const timelines = [
   ['t01', 0.240, 4.130],
@@ -42,29 +43,19 @@ videoFile.addEventListener('timeupdate', e => {
   });
 },false);
 
-// Find clicked span's id in timelines array and get start time for that segment. Set currentTime equal to segment start time
-const seek = function() {
-  timelines.forEach ( timesline => {
-    if (this.id === timesline[0]) {
-      videoFile.currentTime = timesline[1];
-      // If video is paused, set video playing at selected segment
-      if (!videoFile.play()) {
-        videoFile.play();
+// Add a click event to the transcript container and its children. If a span is clicked proceed with code execution, else ignore click event
+container.addEventListener('click', e => {
+  if (e.target.tagName === 'SPAN') {
+    // Find clicked span's id in timelines array and get start time for that segment. Set currentTime equal to segment start time
+    timelines.forEach ( timesline => {
+      if (e.target.id === timesline[0]) {
+        videoFile.currentTime = timesline[1];
+        // If video is paused, set video playing at selected segment
+        if (!videoFile.play()) {
+          videoFile.play();
+        }
       }
-    }
-  });
-  
-};
+    });    
+  };
+});
 
-// Add a click event to the timeline spans and when span is clicked call the seek function
-for (let i = 0; i < timespans.length; i++) {
-    timespans[i].addEventListener('click', seek, false);
-}
-
-
-// Another method to assign click even handlers by calling on the Array's forEach method. Elements are part of the HTML Collection, which has not forEach method
-//Array.prototype.forEach.call(timespans, timespan => {
-//  timespan.addEventListener('click', () => {
-//    console.log(timespan.id);
-//  });
-//});
