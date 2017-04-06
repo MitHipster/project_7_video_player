@@ -59,16 +59,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.0.2/mediaelement-and-player.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/skip-back/skip-back.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.0.0/jump-forward/jump-forward.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script>
       $('video').mediaelementplayer({
         success: function(player, mode) {
           player.load();
         },
-        features : ['playpause','current','skipback','progress','jumpforward','duration'],
+        features : ['playpause','current','skipback','progress','duration','volume','fullscreen'],
         skipBackInterval: 10,
-        jumpForwardInterval: 10
       });
     </script>
   </body>

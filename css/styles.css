@@ -66,16 +66,18 @@ video {
 
 .mejs__custom .mejs__controls .mejs__time-slider, 
 .mejs__custom .mejs__controls .mejs__time-loaded {
-  background: #rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .mejs__custom .mejs__controls .mejs__time-current {
   background: #62bc72;
 }
 
-.mejs__custom .mejs__controls .mejs__time-float {
+.mejs__custom .mejs__controls .mejs__time-float,
+.mejs__custom .mejs__controls .mejs__volume-slider {
   color: #fff;
   background: #62bc72;
+  opacity: 1;
   border: 1px solid #62bc72;
 }
 
